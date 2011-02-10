@@ -87,6 +87,8 @@ module Rails3JQueryAutocomplete
       options = parameters[:options]
       term = parameters[:term]
       is_full_search = options[:full]
+      scope = options[:scope]
+      model = model.send(scope) if scope
 
       limit = get_autocomplete_limit(options)
       implementation = get_implementation(model)
